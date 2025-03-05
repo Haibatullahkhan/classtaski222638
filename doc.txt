@@ -1,0 +1,3 @@
+git add doc.txt
+git commit -m "Updated product documentation"
+git push origin main
