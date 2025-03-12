@@ -11,13 +11,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x, 18.x]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -25,8 +24,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Run tests
+      - name: Debug Installed Dependencies
+        run: npm list
+
+      - name: Run Tests
         run: npm test
+
+
